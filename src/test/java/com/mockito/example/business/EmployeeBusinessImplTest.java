@@ -1,4 +1,4 @@
-package com.mockito.example.service;
+package com.mockito.example.business;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,15 @@ import org.junit.Test;
 
 
 
+
 import com.mockito.example.business.EmployeeBusinessImpl;
 import com.mockito.example.model.Employee;
+import com.mockito.example.service.EmployeeService;
 
 import static org.mockito.Mockito.*;
 
 
-public class EmployeeServiceImplTest {
+public class EmployeeBusinessImplTest {
 
 	@Test
 	public void employeeList_UsingMock() {
