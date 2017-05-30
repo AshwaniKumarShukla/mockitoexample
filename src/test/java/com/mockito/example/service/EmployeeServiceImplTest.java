@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 public class EmployeeServiceImplTest {
 
 	@Test
-	public void test() {
+	public void employeeList_UsingMock() {
 		List<Employee> listEmployees=new ArrayList<Employee>();
 		Employee emp1=new Employee();
 		emp1.setName("sravya");
@@ -31,9 +31,17 @@ public class EmployeeServiceImplTest {
 		EmployeeService empService=mock(EmployeeService.class);
 		when(empService.employeeList()).thenReturn(listEmployees);
 		EmployeeBusinessImpl businessImpl=new EmployeeBusinessImpl(empService);
-		assertEquals("sravya", businessImpl.filteremployeeList().get(0).getName());
-
+		assertEquals("sravya", businessImpl.filteremployeeList().get(0).getName());		
 		
+	}
+	
+	@Test
+	public void employeeEmptyList_UsingMock() {
+		List<Employee> listEmployees=new ArrayList<Employee>();		
+		EmployeeService empService=mock(EmployeeService.class);
+		when(empService.employeeList()).thenReturn(listEmployees);
+		EmployeeBusinessImpl businessImpl=new EmployeeBusinessImpl(empService);
+		assertEquals(0, businessImpl.filteremployeeList().size());		
 		
 	}
 
