@@ -10,6 +10,7 @@ import org.junit.Test;
 
 
 
+
 import com.mockito.example.business.EmployeeBusinessImpl;
 import com.mockito.example.model.Employee;
 import com.mockito.example.service.EmployeeService;
@@ -47,6 +48,11 @@ public class EmployeeBusinessImplTest {
 		
 	}
 
-	
+	@Test(expected=Exception.class)
+	public void employeeListException_UsingMock() {	
+		EmployeeService empService=mock(EmployeeService.class);
+		when(empService.employeeList()).thenThrow(new Exception());
+		
+	}
 
 }
